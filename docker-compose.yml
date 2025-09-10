@@ -1,8 +1,10 @@
 version: '3'
 services:
   dbt-core:
-    restart: always
-    build: .
     container_name: 'dbt-core'
+    build: .
     working_dir: '/root/'
     tty: true
+    restart: always
+    volumes:
+      - ~/.dbt:/root/.dbt:ro
